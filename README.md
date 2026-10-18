@@ -4,6 +4,8 @@ Python CLI plugin/app designed to replace streaming prompt chains that assist co
 ### Requirements
 - `sentence_transformers`
 - `numpy`
+- `pandas`
+- `joblib`
 
 ### Alternative Approach
 - Build around huggingface `transformers` chatting pipeline but I am tired of reading docs.
@@ -15,7 +17,7 @@ Python CLI plugin/app designed to replace streaming prompt chains that assist co
 ### Demo usage
 - To set up StopButton Agent
 ```shell
-    python ./setup.sh
+    bash ./setup.sh
 ```
 
 - Loading Pipeline Example: StopButton
@@ -25,7 +27,7 @@ pipe = Ember.load("StopButton")
 ```
 or with CLI
 ```shell
-    python promptless load --name StopButton --action predict --inputs hello hru
+    python promptless load --name StopButton --action predict --inputs "hello hru"
 ```
 **Viewing target corpus stored as `pos` attribute**
 

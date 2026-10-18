@@ -43,18 +43,20 @@ def main():
     args = global_parser.parse_args()
 
     if args.func == add_new_ember:
-        args.func(
+        error = args.func(
             name=args.name,
             pos=args.target,
             neg=args.contrast
         )
+        if error is not None:
+            raise SystemExit(error)
     elif args.func == Ember.load:
         pipe = args.func(
             name=args.name,
         )
         if args.action == 'predict':
-            pipe.predict(args.inputs)
+            print(pipe.predict(args.inputs))
         else:
-            pipe.predict_proba(args.inputs)
+            print(pipe.predict_proba(args.inputs))
     else:
         args.func()
